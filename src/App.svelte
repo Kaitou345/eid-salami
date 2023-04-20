@@ -143,7 +143,7 @@ function onQrChange()
 
 {#if hide}
 
-<a href={url} download="salami.png" class="absolute inset-0 h-[50px] w-[100px] m-5 py-2 px-5 font-semibold rounded-2xl bg-[#df126d] text-center text-white flex justify-center items-center" bind:this={downlodButton} >
+<a href={url} download="salami.png" class="fixed  inset-0 h-[50px] w-[100px] m-5 py-2 px-5 font-semibold rounded-2xl bg-[#df126d] text-center text-white flex justify-center items-center" bind:this={downlodButton} >
   Download
 </a>
 
