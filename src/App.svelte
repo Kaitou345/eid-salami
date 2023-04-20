@@ -16,17 +16,21 @@ let pfpImage;
 let qrImage;
 
 let existingCanvas = null;
-
+let imageContainer = null;
 let hide = false;
 let url = null;
-
+let downlodButton;
 function generate()
 {
   html2canvas(capture, {canvas: existingCanvas}).then(function(canvas) {
-    hide = true;
-    document.body.appendChild(canvas);
+    hide = true
     url = canvas.toDataURL()
+    document.body.appendChild(canvas);
     console.log(url)
+    
+    imageContainer.src = url;
+    downlodButton.href = canvas.toDataURL()
+    downlodButton.download = "salami.png"
 
 });
 }
@@ -64,8 +68,8 @@ function onQrChange()
 
 </script>
 
+{#if !hide}
 <main class="m-0 p-0 font-sans">
-  {#if !hide}
   <img src="bar.png" class="w-full" alt="">
   <div class="z-10 bar w-full">
   </div>
@@ -133,13 +137,17 @@ function onQrChange()
 
     </p>
   </footer>
+  
+</main>
 {/if}  
 
-  
+{#if hide}
 
-</main>
+<a href={url} download="salami.png" class="absolute inset-0 h-[50px] w-[100px] m-5 py-2 px-5 font-semibold rounded-2xl bg-[#df126d] text-center text-white flex justify-center items-center" bind:this={downlodButton} >
+  Download
+</a>
 
-
+{/if}
 <style>
   
 </style>
