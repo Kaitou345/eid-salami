@@ -89,7 +89,8 @@ function onQrChange()
 
         <div class="flex flex-col gap-5 items-center justify-around">
           <label class="text-center font-medium text-2xl" for="qr">QR কোড এর স্ক্রিনশট / QR Code Screenshot <br>
-            <span class="text-[#df126d] text-base">( স্ক্রিনশট পেতে বিকাশ অ্যাপ এ গিয়ে নিজের ছবি তে চাপ দিয়ে স্ক্রিনশট তুলুন ) </span></label>
+            <span class="text-[#df126d] text-base">( স্ক্রিনশট পেতে বিকাশ অ্যাপ এ গিয়ে নিজের ছবি তে চাপ দিন এবং স্ক্রিনশট তুলে কোডটি ক্রপ করুন )
+            </span></label>
             <label class="py-2 px-5 font-semibold rounded-2xl bg-[#df126d] text-center text-white flex gap-1" for="qr">Upload
               {#if qrCheck }
               <div class="w-5 text-[#8fff66]">
@@ -115,10 +116,10 @@ function onQrChange()
   <div  id="capture" class:hidden={hide} class="absolute -left-[50000px] flex items-center justify-center">
     <div bind:this={capture} class="relative w-[1080px] h-[1080px] overflow-hidden scale-100" >
       <div>
-        <img  bind:this={qrImage} class="absolute top-[490px] left-[200px] z-10 w-[260px] h-[260px]" alt="">
+        <img  bind:this={qrImage} class="object-contain absolute top-[490px] left-[200px] z-10 w-[260px] h-[260px]" alt="">
       </div>
       <div class="absolute rounded-r-[3.9rem] top-[366px] left-[592px] z-10 w-[424px] h-[440px] overflow-hidden object-cover">
-        <img bind:this={pfpImage} class="absolute scale-125" alt="">
+        <img bind:this={pfpImage} class="absolute scale-125 object-cover" alt="">
       </div>
       <img  class="absolute object-contain w-full h-full" src="Bkash.png" alt="">
     </div>
